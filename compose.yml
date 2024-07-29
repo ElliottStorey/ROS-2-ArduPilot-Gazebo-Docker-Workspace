@@ -1,0 +1,18 @@
+services:
+  workspace:
+    build: .
+    hostname: workspace
+    environment:
+      - TERM=xterm-256color
+      # WSLg settings
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - WAYLAND_DISPLAY
+      - XDG_RUNTIME_DIR
+      - PULSE_SERVER
+
+    volumes:
+      - ./ros2_src:/home/user/ros2_ws/src/ros2_src
+      # WSLg settings
+      - /mnt/wslg:/mnt/wslg
+      - /tmp/.X11-unix:/tmp/.X11-unix
